@@ -14,7 +14,7 @@ export class Logger {
         this.level = level;
     }
     
-    level_map:{
+    static level_map ={
         [LogLevel.Debug]:'log',
         [LogLevel.Log]:'log',
         [LogLevel.Warn]:'warn',
