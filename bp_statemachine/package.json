@@ -1,0 +1,11 @@
+{
+  "name": "bp_statemachine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "statemachine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kreopt",
+  "license": "MIT"
+}
