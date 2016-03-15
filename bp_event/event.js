@@ -1,3 +1,4 @@
+/// deprecated
 export class CustomEventListener {
 
     constructor() {
@@ -22,6 +23,25 @@ export class CustomEventListener {
         source.attach(this);
     }
 }
+
+export class EventObserver {
+
+    constructor(source) {
+        this.listener = document.createElement('div');
+        source.attach(this);
+    }
+
+    on(event, fn) {
+        this.listener.addEventListener(event, fn, false);
+        return this;
+    }
+
+    off(event, fn) {
+        this.listener.removeEventListener(event, fn, false);
+        return this;
+    }
+}
+
 
 export class EventSource {
     constructor() {

@@ -7,7 +7,7 @@ export const LogLevel = {
 };
 export class Logger {
     constructor(level = LogLevel.Debug) {
-        setLevel(level);
+        this.setLevel(level);
     }
     
     setLevel(level) {
@@ -21,7 +21,7 @@ export class Logger {
         [LogLevel.Error]:'error'
     }
     _log(lvl, args) {
-        if (this.level<=lvl) console[this.level_map[lvl]].apply(console, Array.prototype.slice.call(args));
+        if (this.level<=lvl) console[Logger.level_map[lvl]].apply(console, Array.prototype.slice.call(args));
     }
     log(){
         this._log(LogLevel.Log, arguments)
