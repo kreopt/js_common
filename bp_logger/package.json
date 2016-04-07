@@ -1,6 +1,6 @@
 {
   "name": "bp_logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Logger with levels",
   "main": "logger.js",
   "scripts": {
