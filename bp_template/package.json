@@ -1,12 +1,12 @@
 {
   "name": "bp_template",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Minimal template engine based on <template> tag",
   "main": "template.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["html", "template"],
   "author": "kreopt",
   "license": "MIT"
 }
