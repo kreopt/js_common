@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/kreopt/js_common.git"
   },
-  "keywords": ["statemachine"]
+  "keywords": ["statemachine"],
   "main": "statemachine.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
