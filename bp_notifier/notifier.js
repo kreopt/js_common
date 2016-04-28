@@ -1,27 +1,33 @@
 export class NotificationMgr {
     constructor(_opts) {
         this.opts = Object.assign({
-            timeout: 3000,
-            node: 'notification_area'
+            icons:{
+                "warning": undefined,
+                "error": undefined,
+                "info": undefined
+            },
+            notifier:{}
         }, _opts);
-        this.node = document.getElementById(this.opts.node);
+        this.enabled = ("Notification" in window);
+    }
+
+    _getPermission() {
+        if (Notification.permission === "granted") {
+            return Promise.resolve();
+        } else if (Notification.permission !== 'denied') {
+            return Notification.requestPermission();
+        }
     }
 
     _message(title, message, type) {
-        let note = document.createElement('div');
-        note.classList.add('notification');
-        note.classList.add(`notification-${type}`);
-        note.innerHTML=`<header>${title}</header><div>${message}</div>`;
-        note.onclick = function() {
-            this.parentNode.removeChild(this);
-            clearTimeout(this.timeout);
-        };
-        this.node.appendChild(note);
-        note.timeout = setTimeout(((note)=>{
-            return ()=>{
-                note.parentNode.removeChild(note);
-            }
-        })(note), this.opts.timeout);
+        if (!this.enabled) return;
+        this._getPermission().then(()=>{
+            let notification = new Notification(title, Object.assign(this.opts.notifier, {
+                body: message,
+                icon: this.opts.icons[type],
+                tag: type
+            }));
+        });
     }
 
     warning(title, message) {
