@@ -1,7 +1,12 @@
 {
   "name": "bp_cookie",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cookie parser & generator",
+  "author": "Alexey Gornostaev <kreopt@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kreopt/js_common.git"
+  },
   "main": "cookie.js",
   "keywords": ["cookie"],
   "scripts": {

@@ -1,7 +1,12 @@
 {
   "name": "bp_template",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Minimal template engine based on <template> tag",
+  "author": "Alexey Gornostaev <kreopt@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kreopt/js_common.git"
+  },
   "main": "template.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

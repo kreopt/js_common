@@ -1,7 +1,12 @@
 {
   "name": "bp_event",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Event source and listener classes",
+  "author": "Alexey Gornostaev <kreopt@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kreopt/js_common.git"
+  },
   "main": "event.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
