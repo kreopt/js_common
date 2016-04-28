@@ -1,9 +1,8 @@
 {
-  "name": "bp_cookie",
+  "name": "bp_map",
   "version": "1.0.0",
-  "description": "Cookie parser & generator",
-  "main": "cookie.js",
-  "keywords": ["cookie"],
+  "description": "Map loaders",
+  "main": "map.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

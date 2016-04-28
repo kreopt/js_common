@@ -1,14 +1,12 @@
-export class CookieParser {
-    constructor(cookie_string) {
-        this.cookieArray = cookie_string.split(';');
-    }
+export const Cookie = {
 
     _paramStr(param, val) {
         return val ? `;${param}=${val}` : "";
-    }
+    },
 
     get(cookieName) {
-        for (let cookie of this.cookieArray) {
+        let cookieArray = document.cookie.split(';');
+        for (let cookie of cookieArray) {
             while (cookie.charAt(0) == ' ') {
                 cookie = cookie.substring(1);
             }
@@ -18,9 +16,9 @@ export class CookieParser {
             }
         }
         return "";
-    }
+    },
 
-    set(name, value, expires, path, domain, secure) {
+    set(name, value, expires, path="", domain"", secure="") {
         let today = new Date();
         today.setTime(today.getTime());
 
@@ -30,9 +28,13 @@ export class CookieParser {
         let expires_date = new Date(today.getTime() + (expires));
 
         document.cookie = `${name}=${encodeURI(value)}
-                            ${this._paramStr("expires", expires_date.toUTCString())}
-                            ${this._paramStr("path", path )}
-                            ${this._paramStr("domain", domain )}
-                            ${this._paramStr("secure", secure )}`
+                            ${Cookie._paramStr("expires", expires_date.toUTCString())}
+                            ${Cookie._paramStr("path", path )}
+                            ${Cookie._paramStr("domain", domain )}
+                            ${Cookie._paramStr("secure", secure )}`;
+    },
+    
+    erase(name) {
+        CookieParser.set(name, "", -1);
     }
 }

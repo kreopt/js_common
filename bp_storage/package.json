@@ -1,9 +1,9 @@
 {
-  "name": "bp_cookie",
+  "name": "bp_storage",
   "version": "1.0.0",
-  "description": "Cookie parser & generator",
-  "main": "cookie.js",
-  "keywords": ["cookie"],
+  "description": "Storage wrapper",
+  "main": "storage.js",
+  "keywords": ["localStorage", "sessionStorage", "cookie"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
