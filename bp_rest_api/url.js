@@ -15,4 +15,11 @@ export class Url {
         }
         return url;
     }
+
+    static trailingSlash(url) {
+        if (!url.endsWith('/')) {
+            url+='/';
+        }
+        return url;
+    }
 }

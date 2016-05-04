@@ -1,6 +1,6 @@
 {
   "name": "bp_rest_api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "REST API helper",
   "author": "Alexey Gornostaev <kreopt@gmail.com>",
   "repository": {
@@ -12,6 +12,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "kreopt",
   "license": "MIT"
 }
