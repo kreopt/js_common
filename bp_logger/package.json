@@ -1,6 +1,6 @@
 {
   "name": "bp_logger",
-  "version": "1.0.5",
+  "version": "1.1.1",
   "description": "Logger with levels",
   "author": "Alexey Gornostaev <kreopt@gmail.com>",
   "repository": {
@@ -11,6 +11,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "kreopt",
   "license": "MIT"
 }
