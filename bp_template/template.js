@@ -1,3 +1,5 @@
+/*import  jsep from 'jsep';*/
+
 /*export */const Template = {
     interpolateVar(string, variable, value) {
         return string.replace(new RegExp(`([^$])?\\$\{${variable}\}`, 'g'), `$1${value}`)
@@ -21,6 +23,22 @@
                     break;
                 default:;
             }
+        }
+    },
+    resolve(expr, context){
+        if ([ExpType.MEMBER_EXP, ExpType.IDENTIFIER].includes(expr.type)) {
+            if (expr.type == ExpType.IDENTIFIER) {
+                return context[expr.name] || '';
+            }
+            try {
+                let obj = Template.resolve(expr.object, context);
+                // TODO: resolver context chain
+                return expr.property.type==ExpType.LITERAL?obj[expr.property.value]:Template.resolve(expr.property, obj);
+            } catch (e) {
+                return '';
+            }
+        } else {
+            return '';
         }
     },
     render:function(template, data) {
