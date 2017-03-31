@@ -17,6 +17,14 @@ export class DestructibleEventListener {
         this[listeners] = null;
     }
 
+    on(event, selector, fn) {
+        this.addEventListener(event, (e)=>{
+            if (e.target.matches(selector)) {
+                fn(e)
+            }
+        });
+    }
+
     addEventListener(event, fn) {
         if (!this[listeners].has(event)) {
             this[listeners].set(event, new Set());
@@ -53,14 +61,20 @@ export class EventEmitter {
     }
 
     addEventListener(event, fn) {
-        this[listener].addEventListener(event, fn, false);
+        if (this[listener]) {
+            this[listener].addEventListener(event, fn, false);
+        }
     }
 
     removeEventListener(event, fn) {
-        this[listener].removeEventListener(event, fn, false);
+        if (this[listener]) {
+            this[listener].removeEventListener(event, fn, false);
+        }
     }
 
     dispatchEvent(event, data) {
-        this[listener].dispatchEvent(new CustomEvent(event, {detail: data}))
+        if (this[listener]) {
+            this[listener].dispatchEvent(new CustomEvent(event, {detail: data}));
+        }
     }
 }

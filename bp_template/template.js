@@ -5,6 +5,8 @@
         return string.replace(new RegExp(`([^$])?\\$\{${variable}\}`, 'g'), `$1${value}`)
     },
     interpolateChildren(node, variable, value) {
+        // TODO: interpolate inner templates
+        // TODO: use outer html for variable substitution
         for (let i=0; i<node.childNodes.length; ++i) {
             let child = node.childNodes[i];
             // Template.interpolateRecursive(child, variable, value);

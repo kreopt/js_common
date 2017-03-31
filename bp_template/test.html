@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base href="">
+</head>
+<body>
+    <template id="test">
+        <div class="sel1" data-attr="" title=""></div>
+        <div class="sel2" data-attr="${test}">${test}</div>
+        <div class="sel3" data-attr="${test}" title="${test}">
+            <div class="sel2" data-attr="${test}">${test}</div>
+        </div>
+        <template data-repeat="k,v" data-iterable="item.values">
+            ${k}: ${v}
+        </template>
+        <template data-if="expr"></template>
+    </template>
+    <div id="tc"></div>
+    <script src="jsep.js"></script>
+    <script src="template.js"></script>
+</body>
+</html>

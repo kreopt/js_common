@@ -66,3 +66,11 @@ export class RESTApi {
         return this.call('PUT', url, data);
     }
 }
+//
+// export const Api = new Proxy({}, {});
+//
+// function pfun(prefix, target, name) {
+//     console.log(`${prefix}.${name}`);
+//     return new Proxy(target, {get: pfun.bind(this, `${prefix}.${name}`)});
+// }
+// var p = new Proxy({}, {get: pfun.bind(this, '')});
