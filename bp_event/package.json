@@ -1,6 +1,6 @@
 {
   "name": "bp_event",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Event source and listener classes",
   "author": "Alexey Gornostaev <kreopt@gmail.com>",
   "repository": {
