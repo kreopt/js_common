@@ -12,6 +12,8 @@ class State {
 
     finishTransition() {}
 
+    failHandler() {}
+
     deactivate() {
         return Promise.resolve(null);
     }
@@ -64,7 +66,10 @@ export class StateMachine {
                 .then((data)=> {
                     this.currentState = state;
                     return data;
-                }).then(state.finishTransition.bind(this));
+                }).then(state.finishTransition.bind(this)).catch((e)=>{
+                    state.failHandler();
+                    throw e;
+                });
         }
         if (this.currentState.name == stateName) return Promise.resolve();
         if (this.currentState.transitions.has(stateName)) {
@@ -73,7 +78,10 @@ export class StateMachine {
                 .then(state.activate.bind(this)).then((data)=> {
                     this.currentState = state;
                     return data;
-                }).then(state.finishTransition.bind(this));
+                }).then(state.finishTransition.bind(this)).catch((e)=>{
+                    state.failHandler();
+                    throw e;
+                });
         } else {
             return Promise.reject(`No such transition: ${this.currentState.name} to ${stateName}`);
         }
